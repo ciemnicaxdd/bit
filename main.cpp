@@ -1,25 +1,29 @@
 #include <iostream>
 #include <bitset>
-
-
+#include <stdlib.h>
 using namespace std;
 
+string zero(int number, int bit)
+
+{
+int base = 0b11111111;
+int fix = 0b00000001;
+
+if(bit != 0)
+{
+fix <<=bit;
+}
+base = base ^ fix;
 
 
-string zero(int x, int y){
-
-
-	string number=bitset<8>(x & y).to_string();
-
-	return number;
+	string x = bitset<8>(number & base).to_string();
+    return x;
 }
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv) 
+{
 
 
-
-
-	cout<<zero(0b0000001,0);
-
+	cout<<zero(2,1);
 	return 0;
 }
